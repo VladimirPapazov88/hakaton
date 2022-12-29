@@ -1,6 +1,5 @@
 from flask import Flask, send_from_directory, request, redirect, send_file
 import pdf_writer
-from pdf2image import convert_from_path
 import fitz
 
 
