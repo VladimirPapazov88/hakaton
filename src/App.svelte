@@ -21,7 +21,7 @@
 <main>
 	<div class="ui stackable menu">
 		<div class="item gr">
-			Автоматизатор дипломов
+			Автоматизатор дипломовdasdas
 		</div>
 		<!-- svelte-ignore a11y-missing-attribute -->
 		<a class="item active">Главная</a>

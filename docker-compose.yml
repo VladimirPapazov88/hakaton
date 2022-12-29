@@ -1,0 +1,12 @@
+version: '3.9'
+
+services:
+  web:
+    volumes:
+      - /mnt/hgfs/Web Sites/hakaton/hakaton:/web
+    command: npm run dev
+    ports:
+      - 8090:8080
+    image: node:19-alpine3.16
+    working_dir: /web
+    
