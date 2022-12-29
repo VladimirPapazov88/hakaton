@@ -1,9 +1,13 @@
 from pypdf import PdfWriter, PdfReader
 import io
+import os
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import letter
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
+
+if not os.path.exists('output'):
+    os.mkdir('output')
 
 cords = {
     "project": {"name": (240, 365),
