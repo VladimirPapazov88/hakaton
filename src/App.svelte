@@ -28,6 +28,10 @@
 			certproject()
 		}
 	}
+
+	function reloadpage() {
+		window.location.reload();
+	}
 </script>
 
 <svelte:head>
@@ -96,7 +100,7 @@
 				<input type="hidden" name="type" value="{type}">
 				<br>
 				<br>
-				<button type="submit" class="ui labeled icon button teal">Создать и скачать<i class="copy icon"></i></button>
+				<button on:click={reloadpage} type="submit" class="ui labeled icon button teal">Создать и скачать<i class="copy icon"></i></button>
 			</form>
 		</div>
 		<div class="column bl">
