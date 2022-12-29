@@ -100,7 +100,7 @@
 			</form>
 		</div>
 		<div class="column bl">
-			<img class="pdf" src="1.jpg" />
+			<img class="pdf" src="1.png" />
 		</div>
 		
 	</div>
