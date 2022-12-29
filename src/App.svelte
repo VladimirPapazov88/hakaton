@@ -1,30 +1,36 @@
+<svelte:head>
+	<title>Автоматизатор дипломов</title>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js"
+		integrity="sha512-Xo0Jh8MsOn72LGV8kU5LsclG7SUzJsWGhXbWcYs2MAmChkQzwiW/yTQwdJ8w6UA9C6EVG18GHb/TrYpYCjyAQw=="
+		crossorigin="anonymous"
+		referrerpolicy="no-referrer"
+	></script>
+	<link
+		rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css"
+		integrity="sha512-KXol4x3sVoO+8ZsWPFI/r5KBVB/ssCGB5tsv2nVOKwLg33wTFP3fmnXa47FdSVIshVTgsYk/1734xSk9aFIa4A=="
+		crossorigin="anonymous"
+		referrerpolicy="no-referrer"
+	/>
+</svelte:head>
+
 <script>
-	export let name;
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	<div class="ui stackable menu">
+		<div class="item gr">
+			Автоматизатор дипломов
+		</div>
+		<!-- svelte-ignore a11y-missing-attribute -->
+		<a class="item active">Главная</a>
+	</div>
 </main>
 
 <style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
+	.gr {
+		background-color: rgb(47, 177, 163)!important;
+		color: white!important;;
 	}
 </style>
