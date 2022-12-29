@@ -33,9 +33,12 @@ def write(cordinates, data, filename, output_prefix):
     for b in cordinates:
         cord = cordinates[b]
         can.setFont(fonts[b]['font'], fonts[b]['size'])
-        wrap_text = data[b].split(' ')
-        for ii in range(len(wrap_text)):
-            can.drawString(cord[0], cord[1] - 28 * ii, wrap_text[ii])
+        if b == 'name':
+            wrap_text = data[b].split(' ')
+            for ii in range(len(wrap_text)):
+                can.drawString(cord[0], cord[1] - 28 * ii, wrap_text[ii])
+        else:
+            can.drawString(*cord, data[b])
 
     packet.seek(0)
     can.save()
@@ -55,7 +58,7 @@ def write_project(name, project_name):
         "name": name,
         "project": project_name
     }
-    write(cords['project'], data, filename="project", output_prefix=project_name)
+    write(cords['project'], data, filename="project", output_prefix=name)
 
 
 def write_jury(name):
@@ -73,6 +76,6 @@ def write_teacher(name):
 
 
 if __name__ == '__main__':
-    write_project('test test test', 'proejct111')
+    write_project('марат', 'шфащфшцщвлздуцпкерноглшдлопнвфавпарпорлодлошргпавыувперноглшдщжзлдолрогпкуценларукцйц   кеннгнрпваамвпуксмавсакапкапеепакеакавукавк')
     write_jury('awfawf awaowfhis wadiawd')
     write_teacher('oihiyegf awuawfoeifp segfhosiegp')
