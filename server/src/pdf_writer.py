@@ -2,10 +2,14 @@ from pypdf import PdfWriter, PdfReader
 import io
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import letter
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
 
 packet = io.BytesIO()
 can = canvas.Canvas(packet, pagesize=letter)
-can.drawString(10, 100, "Hello world")
+pdfmetrics.registerFont(TTFont('main', 'font.ttf'))
+can.setFont('main', 30)
+can.drawString(240, 385, "зыошфв <br /> шыоща <br /> аыао")
 can.save()
 
 # move to the beginning of the StringIO buffer
