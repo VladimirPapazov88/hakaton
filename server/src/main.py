@@ -15,6 +15,8 @@ def generate():
     name = request.form.get('name')
     type = request.form.get('type')
     if type == 'certproject':
+        type = 'project'
+    if type == 'certproject':
         pdf_writer.write_project(name, request.form.get('project'))
         img = convert_from_path(pdf_path=f'output/project_{name}.pdf',
                           poppler_path=r'C:\pf\poppler-22.12.0\Library\bin')
