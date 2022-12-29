@@ -1,14 +1,32 @@
 <script>
-	export var type = "certproject"
+	export var type = ""
 
 	function certproject() {
 		type = "certproject"
+		document.cookie = "type="+type
 	}
 	function teacher() {
 		type = "teacher"
+		document.cookie = "type="+type
 	}
 	function jury() {
 		type = "jury"
+		document.cookie = "type="+type
+	}
+
+	function refresh() {
+		if (document.cookie.indexOf("certproject") != -1) {
+			type = "certproject"
+		}
+		if (document.cookie.indexOf("teacher") != -1) {
+			type = "teacher"
+		}
+		if (document.cookie.indexOf("jury") != -1) {
+			type = "jury"
+		}
+		if (document.cookie.indexOf("type") == -1) {
+			certproject()
+		}
 	}
 </script>
 
@@ -36,7 +54,7 @@
 </svelte:head>
 
 <main>
-	<div class="ui stackable menu">
+	<div on:load={refresh()} class="ui stackable menu">
 		<div class="item gr">Автоматизатор дипломов</div>
 		<!-- svelte-ignore a11y-missing-attribute -->
 		{#if type == "certproject"}
