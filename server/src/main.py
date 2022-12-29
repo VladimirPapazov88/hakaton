@@ -1,6 +1,16 @@
 from flask import Flask, send_from_directory, request, redirect, send_file
 import pdf_writer
 from pdf2image import convert_from_path
+import fitz
+
+
+def save(path):
+    pdffile = path
+    doc = fitz.open(pdffile)
+    page = doc.load_page(0)
+    pix = page.get_pixmap()
+    output = "../../public/1.png"
+    pix.save(output)
 
 app = Flask(__name__, static_url_path='/../../public')
 
@@ -18,19 +28,13 @@ def generate():
         type = 'project'
     if type == 'project':
         pdf_writer.write_project(name, request.form.get('project'))
-        img = convert_from_path(pdf_path=f'output/project_{name}.pdf',
-                          poppler_path=r'C:\pf\poppler-22.12.0\Library\bin')
-        img[0].save('../../public/1.jpg', "JPEG")
+        save(f"output/project_{name}.pdf")
     elif type == 'teacher':
         pdf_writer.write_teacher(name)
-        img = convert_from_path(pdf_path=f'output/teacher_{name}.pdf',
-                          poppler_path=r'C:\pf\poppler-22.12.0\Library\bin')
-        img[0].save('../../public/1.jpg', "JPEG")
+        save(f"output/teacher_{name}.pdf")
     elif type == 'jury':
         pdf_writer.write_jury(name)
-        img = convert_from_path(pdf_path=f'output/jury_{name}.pdf',
-                          poppler_path=r'C:\pf\poppler-22.12.0\Library\bin')
-        img[0].save('../../public/1.jpg', "JPEG")
+        save(f"output/jury_{name}.pdf")
     return send_file(f'output/{type}_{name}.pdf', as_attachment=True)
 
 
