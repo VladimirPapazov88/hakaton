@@ -9,7 +9,7 @@ packet = io.BytesIO()
 can = canvas.Canvas(packet, pagesize=letter)
 pdfmetrics.registerFont(TTFont('main', 'font.ttf'))
 can.setFont('main', 30)
-can.drawString(240, 385, "зыошфв <br /> шыоща <br /> аыао")
+can.drawString(240, 385, "hello world")
 can.save()
 
 # move to the beginning of the StringIO buffer
